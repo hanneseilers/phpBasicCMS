@@ -63,8 +63,11 @@
 		$url = $js.$site;
 		$url = addExtension($url, ".js");
 		
-		if( file_exists($url) ) include( $url );
-		else err( $err_404, $url );
+		if( file_exists($url) ) {
+			print "<script>\n";
+			include( $url );
+			print "\n</script>";
+		} else err( $err_404, $url );
 	}
 	
 	# Includes and shows a css site from global $css path
@@ -75,8 +78,11 @@
 		$url = $css.$site;
 		$url = addExtension($url, ".css");
 		
-		if( file_exists($url) ) include( $url );
-		else err( $err_404, $url );
+		if( file_exists($url) ) {
+			print "ßn\n<style>\n";
+			include( $url );
+			print "\n</style>\n";
+		}else err( $err_404, $url );
 	}
 	
 	# Shows the link to an assets content from global $assets path

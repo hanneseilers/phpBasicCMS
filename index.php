@@ -6,7 +6,7 @@
 	$assets = "assets/";
 	$includes = "includes/";
 	$js = $includes."js/";
-	$css = $includes."cs/";
+	$css = $includes."css/";
 	$php = $includes."php/";
 	
 	include( $php."base.php" );	
