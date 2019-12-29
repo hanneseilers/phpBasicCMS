@@ -3,7 +3,7 @@
 <?php
 	# file-system config
 	$content = "content/";
-	$assests = "assets/";
+	$assets = "assets/";
 	$includes = "includes/";
 	$js = $includes."js/";
 	$css = $includes."cs/";
