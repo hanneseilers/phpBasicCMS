@@ -1,6 +1,7 @@
 # phpBasicCMS
 
 Simple and basic php script system to use basic php cms.
+It already includes bootstrape (with jquery an Propper.js
 
 ## Installation
 Just download or clone repository to your webspace and add content.
