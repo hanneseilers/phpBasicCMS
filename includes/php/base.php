@@ -44,6 +44,7 @@
 	# ---- Content Include Functions ----
 	
 	# Includes and shows a content site from global $content path
+	# Function automaticcally add .php extension
 	# $site:	Site name or file to include
 	function get($site){
 		global $content, $err_404;
@@ -55,6 +56,7 @@
 	}
 	
 	# Includes and shows a js file from global $js path
+	# Function automaticcally add .js extension
 	# $site:	Js name or file to include
 	function getJs($site){
 		global $js, $err_404;
@@ -66,6 +68,7 @@
 	}
 	
 	# Includes and shows a css site from global $css path
+	# Function automaticcally add .css extension
 	# $site:	Css name or file to include
 	function getCss($site){
 		global $css, $err_404;
@@ -84,4 +87,38 @@
 		
 		if( file_exists($url) ) print( $url );
 		else print "error";
+	}
+	
+	# Prints url to a content page from global $content path
+	# Function automaticcally add .php extension
+	# $site:		Content page link to show
+	function url($site){
+		global $content, $err_404;
+		$url = $content.$site;
+		$url = addExtension($url);
+		
+		if( file_exists($url) ) print( $url );
+		else err( $err_404, $url );
+	}
+	
+	# ---- Link Handling Functions ----
+	
+	# Gets page name from header informationn (hash map required) send (may e POST or GET).
+	# $header:		Array of header information
+	# return: 		page name or false if no information found
+	#
+	# Function extracts key and value pairs in array (hash map). It returns the value if key is 'p' or 'page'.
+	# It returns the key if a key has no value.
+	function getPage($header){
+	
+		foreach( $header as  $key => $value ){
+		
+			if( $key == "page" ) return $value;
+			if( $key == "p" ) return $value;
+			if( strlen($value) == 0 ) return $key;
+		
+		}
+		
+		return false;
+	
 	}

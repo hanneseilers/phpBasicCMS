@@ -23,7 +23,18 @@
 		<?php get( "nav" ); ?>
 
 		<?php
-			get("home");
+		
+			# get page content
+			# following page specification is allowed:
+			# <URL>?page=<PAGE>
+			# <URL>?p=<PAGE>
+			# <URL>?<PAGE>
+			# where <URL> is the site url and <PAGE> the page name
+			# if no page is selected. 'home' will be shown.
+			$page = getPage( $_GET );
+			if( $page ) get($page);
+			else get( "home" );
+			
 		?>
 		
 		<?php get( "footer" ); ?>
